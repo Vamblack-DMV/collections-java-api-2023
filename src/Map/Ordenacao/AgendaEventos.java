@@ -38,7 +38,7 @@ public class AgendaEventos {
         if (!eventosMap.isEmpty()) {
             //Organizando em ordem crescente o Map
             Map <LocalDate, Evento> eventoTreeMap = new TreeMap<>(eventosMap);
-            for (Map.Entry <LocalDate, Evento> entry : eventosMap.entrySet()) {
+            for (Map.Entry <LocalDate, Evento> entry : eventoTreeMap.entrySet()) {
                 if (entry.getKey().isEqual(dataAtual) || entry.getKey().isAfter(dataAtual)) {
                     proximaData = entry.getKey();
                     proximoEvento = entry.getValue();
@@ -58,8 +58,14 @@ public class AgendaEventos {
         agenda.adicionarEvento(LocalDate.of(2022, Month.JULY, 15), "Evento 1", "Atração 1");
         agenda.adicionarEvento(LocalDate.of(2022,7, 9), "Evento 2", "Atração 2");
         agenda.adicionarEvento(LocalDate.of(2020, Month.JANUARY, 10), "Evento 3", "Atração 3");
+        agenda.adicionarEvento(LocalDate.of(2024, 1, 8), "Evento 4", "Atração 4");
+        agenda.adicionarEvento(LocalDate.of(2024, 1, 12), "Evento 5", "Atração 5");
+        agenda.adicionarEvento(LocalDate.of(2024, Month.SEPTEMBER, 20), "Evento 6", "Atração 6");
 
         //Exibindo agenda
         agenda.exibirAgenda();
+
+        //Obter próximo evento
+        agenda.obterProximoEvento();
     }
 }
